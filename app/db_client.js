@@ -1,7 +1,8 @@
 import * as dotenv from 'dotenv'; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
 dotenv.config();
 
-import {Pool} from 'pg';
+import pkg from 'pg';
+const {Pool} = pkg;
 
 const pool = new Pool({
   host: process.env.DB_HOST,
