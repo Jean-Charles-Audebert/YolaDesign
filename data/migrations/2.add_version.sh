@@ -1,0 +1,1 @@
+sqitch add init -n "création des tables"
