@@ -1,0 +1,30 @@
+{
+  "name": "yolaboutique",
+  "version": "1.0.0",
+  "description": "Site vitrine e-commerce",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "lint": "eslint"
+  },
+  "keywords": [],
+  "author": "Jean-Charles Audebert",
+  "type": "module",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.36.0",
+    "eslint-config-google": "^0.14.0"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "nodemon": "^2.0.21",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "pg": "^8.10.0"
+  }
+}
