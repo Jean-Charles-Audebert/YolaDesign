@@ -10,7 +10,11 @@ const mainController = {
         }
     },
 
-   
+    getOneArticle: async (req, res) => {
+      const targetId = req.params.id;
+      const product = await dataMapper.getProductById(targetId);
+      res.render('article', {product});
+    },
 }
 
 

@@ -1,3 +1,7 @@
+# En construction
+
+<details>
+<summary>
 # Yola Design
 
 Ce site est une boutique en ligne pour une créatrice de bijoux et de déco sur meubles ou objets
@@ -34,3 +38,4 @@ Passport va nous permettre de gérer les login/logout des différents comptes.
 
 Bcryptjs va nous permettre de transformer le mot de passe de l'utilisateur pour ne pas le stocker dans la base de données, mais de pouvoir comparer son hash selon une formule magique.
 
+</details>
