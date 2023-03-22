@@ -1,0 +1,54 @@
+<%- include('partials/header') %>
+
+<div class="col">
+    <h3 class="text-center">Votre liste de préférences</h3>
+
+    <table class="table">
+      <thead>
+        <th>Article</th>
+        <th>Prix HT</th>
+        <th></th>
+      </thead>
+      <tbody>
+        <% if (bookmarks && bookmarks.length) { %>
+          <% for (bookmark of bookmarks){ %>
+        <tr>
+          <td>
+            <img class="img-thumbnail img-cart-list" src="./images/<%= bookmark.name.toLowerCase() %>.png" alt="">
+            <div class="item-description">
+                <h5 class="item-title"><%= bookmark.name %></h5>
+            </div>
+          </td>
+
+          <td>
+            <p class="item-subtotal">$<%= bookmark.price %></p>
+          </td>
+
+          <td>
+            <a href="/bookmarks/delete/<%= bookmark.id %>">Enlever de la liste</a>
+          </td>
+        </tr>
+        <% } %>
+        <% } else { %>
+          <tr>
+            <td>Il n'y a pas de favoris à afficher</td>
+          </tr>
+        <% } %>
+
+      </tbody> 
+
+    </table>
+
+    <div class="row">
+      <div class="col text-right">
+          <a class="btn btn-success" href="/">
+            Retour à l'accueil
+          </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<%- include('partials/footer') %>

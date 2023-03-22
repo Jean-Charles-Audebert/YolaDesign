@@ -1,13 +1,11 @@
-import express from 'express';
-import mainController from './controllers/mainController.js';
+const express = require('express');
+
+// on importe nos controllers
+const mainController = require('./controllers/mainController');
 
 const router = express.Router();
 
-router.get('/', mainController.homepage);
+router.get('/', mainController.homePage);
 
 
-router.get('/about', (req, res) => {
-  res.send('À propos');
-});
-
-export default router;
+module.exports = router;

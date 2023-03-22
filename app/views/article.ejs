@@ -1,0 +1,104 @@
+<%- include('partials/header') %>
+
+<%- include('partials/leftMenu') %>
+
+<div class="col-lg-9">
+
+    <div class="row">
+      <div class="col-lg-6">
+        <img class="" src="/images/<%= figurine.name.toLowerCase() %>.png" alt="">
+      </div>
+
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+              <h3 class="card-title">
+                <%= figurine.name %>
+                <div class="badge badge-pill badge-<%= figurine.category.toLowerCase() %>"><%= figurine.category%></div>
+              </h3>
+              <p class="card-text">Taille réelle : <%= figurine.size %>cm</p>
+              <p class="card-text"><%= figurine.description%></p>
+              <p class="card-text">
+                Note moyenne : 
+
+                <% for (let note = 1 ; note <= 5 ; note++) { %>
+                  <% if (note <= figurine.note) { %>
+                    &#9733;
+                  <% } else { %> 
+                    &#9734;
+                  <% } %>
+                <% } %>
+
+                <br>
+                <a href="#" data-toggle="modal" data-target="#reviewsModal">Détails des avis</a>
+              </p>
+              <h5>$<%= figurine.price %></h5>
+              <p class="card-text">
+                <a href="#" class="link-add-bookmarks">+ Ajouter aux favoris</a>
+              </p>
+          </div>
+        </div>
+      
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.col-lg-9 -->
+
+</div>
+<!-- /.row -->
+
+</div>
+<!-- /.container -->
+
+<!-- Modale des avis -->
+<div class="modal fade" id="reviewsModal" tabindex="-1" role="dialog" aria-labelledby="reviewsModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 class="modal-title" id="reviewsModalLabel">Avis des internautes</h3>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+
+      <% for (review of reviews) { %>
+      <section>
+        <h5><%= review.title %> &nbsp; <small class="text-muted">
+          <!-- Boucle pour afficher les notes sous forme d'étoile -->
+          <!-- Pour afficher les notes de manière dynamique, on va faire une boucle avec un nombre d'incrémentation maximum
+          Ici, on sait qu'il y a 5 étoiles. Donc on va donner à notre incrément 3 propriétés :
+          - Il commence à 1 (let note = 1) => minimum 1 étoile
+          - Il doit être inférieur ou égal à 5 (note <=5) => maximum 5 étoiles
+          - Il doit être incrémenté de 1 en 1 (note++) => nombre de tour de la boucle        
+        -->
+          <% for (let note = 1 ; note <= 5 ; note++) { %>
+            <!-- Si l'incrément (l'étoile en cours de traitement) est inférieur à la note de la review (le nombre d'étoile pleine) -->
+            <% if (note <= review.note) { %>
+              &#9733; <!-- On ajoute une étoile pleine   -->
+            <% } else { %> 
+              &#9734; <!-- On ajoute une étoile vide   -->
+            <% } %>
+          <% } %>
+        </small></h5>
+        <p class="review-author">par <%= review.author %> </p>
+        <p><%= review.message %> </p>
+      </section>
+
+      <hr>
+      <% } %>
+
+      
+
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<%- include('partials/footer') %>
